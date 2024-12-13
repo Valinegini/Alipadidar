@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Photography Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('IMG-20241204-WA0040.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: black; /* Change text color to black */
+        }
+
+        header {
+            background-color: rgba(139, 69, 19, 0.8);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav {
+            margin: 20px 0;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em; /* Adjusted for mobile */
+            color: white; /* Change this color to white */
+        }
+
+        .section {
+            padding: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .products {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+            width: 100%; /* Full width on mobile */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: rgba(139, 69, 19, 0.8);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px; /* Space between images */
+            justify-content: center;
+        }
+
+        .gallery figure {
+            width: calc(33.33% - 10px); /* Three images per row on larger screens */
+            margin: 0; /* Remove default margin */
+        }
+
+        .gallery img {
+            width: 100%; /* Make images responsive */
+            border-radius: 5px;
+            cursor: pointer; /* Change cursor to pointer for clickable images */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 200px; /* Set a max height for uniformity */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em; /* Smaller title size on mobile */
+            }
+
+            .gallery figure {
+                width: calc(50% - 10px); /* Two images per row on tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery figure {
+                width: calc(100% - 10px); /* One image per row on mobile */
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+        }
+
+        .modal img {
+            margin: auto;
+            display: block;
+            width: 80%; /* Set the width of the image */
+            max-width: 700px; /* Max width for large screens */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Photography Portfolio</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>The Essential Elements for an Extraordinary Home</h1>
+    </div>
+
+    <div class="section" id="home">
+        <h2>Latest Photos</h2>
+        <div class="gallery">
+            <figure>
+                <img src="IMG-20241204-WA0023.jpg" alt="Latest Photo 1" onclick="openModal(this.src)">
+            </figure>
+            <figure>
+                <img src="IMG-20241204-WA0024.jpg" alt="Latest Photo 2" onclick="openModal(this.src)">
+            </figure>
+            <figure>
+                <img src="IMG-20241204-WA0025.jpg" alt="Latest Photo 3" onclick="openModal(this.src)">
+            </figure>
+            <figure>
+                <img src="IMG-20241204-WA0026.jpg" alt="Latest Photo 4" onclick="openModal(this.src)">
+            </figure>
+            <figure>
+                <img src="IMG-20241204-WA0027.jpg" alt="Latest Photo 5" onclick="openModal(this.src)">
+            </figure>
+            <figure>
+                <img src="IMG-20241204-WA0028.jpg" alt="Latest Photo 6" onclick="openModal(this.src)">
+            </figure>
+        </div>
+    </div>
+
+    <div class="section" id="about">
+        <h2>About Me</h2>
+        <p>Welcome to my portfolio! I am a photographer specializing in [your specialty]. My work focuses on capturing the beauty of [specific themes or subjects].</p>
+    </div>
+
+    <div class="section" id="portfolio">
+        <h2>My Work</h2>
+        <div class="products">
+            <div class="product">
+                <div class="gallery">
+                    <figure>
+                        <img src="IMG-20241204-WA0023.jpg" alt="Work Photo 1" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0024.jpg" alt="Work Photo 2" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0025.jpg" alt="Work Photo 3" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0026.jpg" alt="Work Photo 4" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0027.jpg" alt="Work Photo 5" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0028.jpg" alt="Work Photo 6" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0029.jpg" alt="Work Photo 7" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0030.jpg" alt="Work Photo 8" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0031.jpg" alt="Work Photo 9" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0032.jpg" alt="Work Photo 10" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0033.jpg" alt="Work Photo 11" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0034.jpg" alt="Work Photo 12" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0035.jpg" alt="Work Photo 13" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0036.jpg" alt="Work Photo 14" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0037.jpg" alt="Work Photo 15" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0038.jpg" alt="Work Photo 16" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0039.jpg" alt="Work Photo 17" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0040.jpg" alt="Work Photo 18" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0041.jpg" alt="Work Photo 19" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0042.jpg" alt="Work Photo 20" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0043.jpg" alt="Work Photo 21" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0044.jpg" alt="Work Photo 22" onclick="openModal(this.src)">
+                    </figure>
+                    <figure>
+                        <img src="IMG-20241204-WA0045.jpg" alt="Work Photo 23" onclick="openModal(this.src)">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="contact">
+        <h2>Contact Me</h2>
+        <p>If you'd like to get in touch, feel free to reach out via email: <a href="mailto:your-email@example.com">your-email@example.com</a>.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal for larger image view -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        function openModal(src) {
+            var modal = document.getElementById("myModal");
+            var modalImage = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImage.src = src;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
